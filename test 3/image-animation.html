@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            padding-top: 100vh;
+            padding-bottom: 50vh;
+            background-color: #032F22;
+        }
+        .container {
+            max-width: 1300px;
+            margin: auto;
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding-bottom: 100px;
+        }
+        .hide-over, .hide-over2 {
+            background: url(overlay.png) no-repeat;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            transition: 0.05s ease;
+            overflow: hidden;
+            z-index: 1;
+            transition: 0.9s ease-in-out;
+            -webkit-transition: 0.9s ease-in-out;
+        }
+        .col {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="wrapper wrapper-one">
+                <div class="col-one col">
+                    <div class="hide-over"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+                <div class="col-two col">
+                    <div class="hide-over2"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-two">
+                <div class="col-one col">
+                    <div class="hide-over"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+                <div class="col-two col">
+                    <div class="hide-over2"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-three">
+                <div class="col-one col">
+                    <div class="hide-over"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+                <div class="col-two col">
+                    <div class="hide-over2"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-four">
+                <div class="col-one col">
+                    <div class="hide-over"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+                <div class="col-two col">
+                    <div class="hide-over2"></div>
+                    <div class="my-img">
+                        <img src="img.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function (event) {
+            var scroll = $(window).scrollTop();
+            var documentHeight = $(window).height() / 2;
+
+            if (scroll >= $('.wrapper-one').offset().top - documentHeight) {
+                $('.wrapper-one').addClass('ok');
+                $('.ok .hide-over').css('transform', 'translateX(-110%)');
+                $('.ok .hide-over2').css('transform', 'translateX(110%)');
+            }
+
+            if (scroll >= $('.wrapper-two').offset().top - documentHeight) {
+                $('.wrapper-two').addClass('ok');
+            }
+            if (scroll >= $('.wrapper-three').offset().top - documentHeight) {
+                $('.wrapper-three').addClass('ok');
+            }
+            if (scroll >= $('.wrapper-four').offset().top - documentHeight) {
+                $('.wrapper-four').addClass('ok');
+            }
+        });
+    </script>
+
+    <script>
+        jQuery(function ($) {
+            var overlayheight = $(".wrapper img").height();
+            $('.hide-over2 , .hide-over').css('height', overlayheight);
+        });
+    </script>
+
+</body>
+</html>
