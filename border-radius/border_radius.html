@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 1000px
+        }
+        .other_section {
+            padding-bottom: 100vh;
+        }
+        .main-border {
+            padding-bottom: 100px;
+        }
+        .round-border {
+            width: 100%;
+            background: rgb(173, 200, 230);
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            transition: 0.7s ease;
+        }
+        .circular-text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .text{
+            font-family: "Fira Code";
+            font-weight: 700;
+            font-size: 7vw;
+            text-transform: uppercase;
+            color: var(--second-color);
+            transition: 0.7s ease;
+        }
+        .inside-text {
+            position: absolute;
+            width: calc(100% - 50vw);
+        }
+        .inside-text p{
+            font-size: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="top-border">
+        <div class="other_section"></div>
+        <div class="main-border"></div>
+        <div class="round-border">
+        <div class="circular-text">
+            <p class="text">One • Two • Three • Viva • L'Algerie • One • Two • </p>
+          
+            <div class="inside-text">
+                <p>The standard Lorem Ipsum passage, used since the 1500s
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    
+                    Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                    
+                    </p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/circletype@2.3.0/dist/circletype.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+
+
+    <script>
+        // Select the text you want to make it circular
+const text = document.querySelector(".circular-text .text");
+
+// Make the selected text circler with CircleType
+// you can find the full docs here: https://circletype.labwire.ca/
+const rotate = new CircleType(text).radius(70);
+
+// Add a scroll listener to the window object and rotate the selected text according to the scroll
+// we used * 0.15 to make the rotation looks smoother
+window.addEventListener("scroll", function(){
+text.style.transform=`rotate(${window.scrollY * 0.03}deg)`;
+
+})
+    </script>
+    <script>
+        $(window).scroll(function () {
+            var scroll = $(window).scrollTop();
+            if (scroll >= $('.main-border').offset().top - 300) {
+                $(".round-border").css("border-top-right-radius", '0');
+                $(".round-border").css("border-top-left-radius", '0');
+            }
+            else {
+                $(".round-border").css("border-top-left-radius", '50%');
+                $(".round-border").css("border-top-right-radius", '50%')
+            }
+        });
+    </script>h
+
+
+
+</body>
+
+</html>
