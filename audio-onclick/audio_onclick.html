@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>audio Onclick</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <style>
+            button{
+                margin: 6vw auto;
+                text-align: center;
+                padding: 10px 30px;
+                cursor: pointer;
+                display: flex;
+                z-index: 99;
+            }
+            body.opened {
+                background-color: #ffe2db;
+            }
+           
+            .menu-items {
+                display: flex;
+                justify-content: center;
+                list-style: none;
+                text-align: center;
+                font-size: 23px;
+                font-weight: bold;
+                transition: 0.5s ease-in-out;
+                gap: 1vw;
+                flex-direction: column;
+                padding: 0
+            }
+            body.closed .menu-items,.menu-items {
+                display: none;
+            }
+            body.opened .menu-items{
+                display: flex;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="menu">MENU</button>
+        <ul class="menu-items">
+            <li>First Menu</li>
+            <li>Second Menu</li>
+            <li>Third Menu</li>
+            <li>Four Menu</li>
+            <li>Five Menu</li>
+        </ul>
+        <audio id="open"><source src="1.mp3"></audio>
+        <audio id="close"><source src="2.mp3"></audio>
+        
+        <script>
+            var audio1 = jQuery('#open');
+            var audio2 = jQuery('#close');
+            jQuery('.menu').on('click', function() {
+            if (jQuery(this).hasClass('clicked')) {
+            $('.menu').text('MENU');
+            $('body').removeClass('opened');
+            $('body').addClass('closed');
+            $(this).removeClass('clicked');
+            
+            audio1[0].play();
+            }
+            else
+            {
+                $('.menu').text('CLOSE');
+                // $(this).next().addClass('play');
+                $('body').addClass('opened');
+                $('body').removeClass('closed');
+                $(this).addClass('clicked');
+                audio2[0].play();
+            }
+            });
+        </script>
+       <!-- <script>
+        $(document).ready(function () {
+            var objclose = document.createElement("audio");
+            var objopen = document.createElement("audio");
+            objclose.src = "1.mp3";
+            objopen.src = "2.mp3";
+            // obj.volume=0.10;
+            // obj.autoPlay=false;
+            // obj.preLoad=true; 
+            $(".btn").click(function () {
+                if ($('.menu ul li').is(':hidden')) {
+                    $('.menu ul li').show();
+                    $(this).text("Close");
+                    objopen.play();
+    
+                } else {
+                    $('.menu ul li').hide();
+                    $(this).text("Menu");
+                    objclose.play();
+                }
+            });
+    
+        });
+    
+    </script> -->
+    </body>
+</html>
