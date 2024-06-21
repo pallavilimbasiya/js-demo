@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Card Stack</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            padding: 10px;
+            margin: 0;
+        }
+        .container{
+            max-width: 1200px;
+            margin: auto;
+        }
+        .info{
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .cards_wrapper{
+            position: relative;
+            height: calc(100vh - 20px);
+        }
+        .cards_wrapper .card{
+            height: inherit;
+            border: 1px solid rgb(219, 245, 254);
+            border-radius: 10px;
+            padding: 30vh 50px;
+            position: sticky;
+            overflow: hidden;
+        }
+        .cards_wrapper .card:nth-last-child(6){
+            background-color: rgb(219, 245, 254);
+            bottom: 150px;
+            z-index: 5;
+            height: calc(100vh - 165px);
+        }
+        .cards_wrapper .card:nth-last-child(5){
+            background-color: rgb(252, 230, 230);
+            bottom: 120px;
+            z-index: 4;
+            height: calc(100vh - 140px);
+        }
+        .cards_wrapper .card:nth-last-child(4){
+            background-color: rgb(234, 254, 239);
+            bottom: 90px;
+            z-index: 3;
+            height: calc(100vh - 110px);
+        }
+        .cards_wrapper .card:nth-last-child(3){
+            background-color: rgb(252, 231, 243);
+            bottom: 60px;
+            z-index: 2;
+            height: calc(100vh - 80px);
+        }
+        .cards_wrapper .card:nth-last-child(2){
+            background-color: rgb(255, 254, 226);
+            bottom: 30px;
+            z-index: 1;
+            height: calc(100vh - 60px);
+        }
+        .cards_wrapper .card:nth-last-child(1){
+            background-color: rgb(226, 254, 255);
+            bottom: 10px;
+            z-index: 0;
+            height: calc(100vh - 20px);
+        }
+        .arrow {
+            position: fixed;
+            border-radius: 100%;
+            background-color: #0000007a;
+            color: #fff;
+            padding: 10px;
+            bottom: 100px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 9;
+            width: 38px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .card_stack {
+            position: relative;
+        }
+    </style>
+</head>
+    <body>
+        <section class="card_stack">
+            <div class="cards_wrapper">
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="container">
+                        <div class="info">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quaerat, optio debitis voluptates possimus nemo! Architecto unde harum temporibus quia molestias voluptatem, assumenda delectus hic veritatis, quibusdam possimus. Nesciunt, vitae?</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+            <div class="arrow">↓</div>
+        </section>
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+
+            $(".arrow").click(function () {
+                
+                
+                $('html, body').animate({
+                    scrollTop: ($(this).offset().top)/1.1
+                }, 500, function () {
+                    $('.arrow').fadeOut();
+                });
+    
+            });
+    
+            jQuery(document).scroll(function () {
+                var y = $(this).scrollTop();
+                if (y < 400) {
+                    $('.arrow').fadeIn();
+                } else {
+                    $('.arrow').fadeOut();
+                }
+            });
+    
+        </script>
+    </body>    
+</html>
